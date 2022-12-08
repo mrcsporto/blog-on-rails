@@ -1,8 +1,6 @@
-<% @posts.each do |post| %>
-  <%= render(post) %>
-<% end %>
+<%= render @posts %>
 <hr>
 
 <div class="text-end">
-  <%= link_to "Novo Post", new_post_path, class: 'btn btn-success' %>
+  <%= link_to "Novo Post", new_post_path, class: 'btn btn-dark' %>
 </div>
