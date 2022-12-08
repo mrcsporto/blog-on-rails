@@ -18,7 +18,7 @@
         <%= pluralize(@post.comments.count, 'Comentário') %>
       </h4>
          <% if @post.comments.none? %>
-          <em class="font-italic text-lowercase font-weight-light text-info"> Seja o primeiro a comentar!!!</em>
+          <em class="font-italic text-lowercase font-weight-light text-success"> Seja o primeiro a comentar!</em>
           <% end %>
     </div>
   </div>

@@ -5,7 +5,7 @@
       <em>Por <%= post.author %> (<%= l(post.created_at, format: :long) %>) </em>
     </div>
     <p>
-      <%= post.body.truncate(150) %>
+      <%= post.body.truncate(300) %>
     </p> 
     <p class="text-muted">
       <%= pluralize(post.comments.count, 'Comentário') %> 
