@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
     <title>Blog</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
@@ -11,6 +14,21 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="bg-primary text-center text-white mb-4 p-4">
+      <%= link_to root_path, class: 'text-white' do %>
+        <h1 class="display-4">Blog</h1>
+        <p class="lead">
+          This is a lead paragraph. It stands out from regular paragraphs.
+        </p>
+      <% end %>
+    </div>
+    <div class="container">
+      <%= yield %>
+    </div>
+
+  <footer class="bg-primary text-center text-white mt-5 p-4">
+    Copyright © Marcos Porto <%= Date.current.year %>
+  </footer>
+
   </body>
 </html>
