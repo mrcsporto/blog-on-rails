@@ -1,6 +1,5 @@
-<%= render @posts %>
-<hr>
+<%= render @posts.order(created_at: :desc) %>
 
 <div class="text-end">
-  <%= link_to "Novo Post", new_post_path, class: 'btn btn-dark' %>
+  <%= link_to "Novo Post", new_post_path, class: 'btn btn-dark btn-lg fs-4' %>
 </div>
