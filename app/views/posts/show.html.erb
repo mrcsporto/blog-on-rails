@@ -26,7 +26,7 @@
   </div>
 
     <% @comments.each do |comment| %>
-      <div class="container col-lg-8 my-3 p-4 shadow-sm border border-muted rounded">
+      <div class="container col-lg-8 my-3 p-4 shadow-sm border border-muted rounded bg-white">
 
         <div class="row d-flex flex-row">
           <div class="col fs-5">
@@ -46,7 +46,7 @@
       </div>
   <% end %>
 
-  <div class="container col-lg-8 my-3 pt-4 px-4 shadow-sm border border-muted rounded">
+  <div class="container col-lg-8 my-3 pt-4 px-4 shadow-sm border border-muted rounded bg-white">
     <%= form_with model: @comment, local: true do |form| %>
       <%= form.hidden_field :post_id, value: @post.id %>
         <div class="form-group">
