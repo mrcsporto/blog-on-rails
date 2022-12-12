@@ -49,12 +49,12 @@
       <%= form.hidden_field :post_id, value: @post.id %>
         <div class="form-group">
           <%= form.label :author, class: 'fs-5' %>
-          <%= form.text_field :author %>
+          <%= form.text_field :author, required: true%>
         </div>
 
         <div class="form-group mt-2">
           <%= form.label :body, class: 'fs-5' %>
-          <%= form.text_area :body %>
+          <%= form.text_area :body, required: true %>
         </div>
 
         <div class="actions my-3">

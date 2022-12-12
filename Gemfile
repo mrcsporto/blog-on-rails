@@ -26,9 +26,10 @@ gem 'jbuilder', '~> 2.7'
 gem 'rails-i18n'
 gem 'pry'
 
+# ctiveRecord named scopes that take advantage of PostgreSQL’s full text search
+gem 'pg_search'
 # It allows you to create pretty URL’s and work with human-friendly strings as if they were numeric ids for ActiveRecord models.
 gem 'friendly_id', '~> 5.4.0'
-
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false

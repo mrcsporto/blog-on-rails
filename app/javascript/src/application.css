@@ -10,3 +10,7 @@ body {
 a {
   text-decoration: none;
 }
+
+.main.container {
+  height: 100%;
+}
