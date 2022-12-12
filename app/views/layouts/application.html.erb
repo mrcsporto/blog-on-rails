@@ -18,11 +18,11 @@
       <%= link_to root_path, class: 'text-white' do %>
         <h1 class="display-4 text-uppercase">Blog</h1>
         <p class="lead">
-          This is a lead paragraph. It stands out from regular paragraphs.
+          "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet..."
         </p>
       <% end %>
     </div>
-    <div class="main container col-md-10 col-lg-8">
+    <div class="container col-md-10 col-lg-8">
       <% flash.each do |type, message| %>
         <div class="alert alert-<%= type == 'alert' ? 'danger' : 'success' %> alert-dismissible fade show" role="alert">
           <%= message %>
