@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-5 offset-7">    
+    <div class="search">
+      <%= form_with url:search_posts_path, method: :get, local: true, class: 'form-text' do |form| %>
+        <div class="form-group mx-2 mb-2 d-flex align-items-end">
+          <%= form.search_field :q, value: params[:q], class: 'form-control me-2', required: true, placeholder: '🔎'%>
+          <%= form.submit 'Buscar', data: { disable_with: 'Buscando...' }, class: 'form-text button-clear px-0' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
