@@ -2,5 +2,5 @@
 <%= render @posts.order(created_at: :desc) %>
 
 <div class="text-end">
-  <%= button_to "Novo Post", new_post_path(@posts), method: 'get' %>
+  <%= button_to "Novo Post", new_post_path(@post), method: 'get' %>
 </div>
