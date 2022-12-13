@@ -13,10 +13,16 @@
     </p>
     <div class="align-items-center">
       <%= button_to "Ler Artigo", post_path(post), method: 'get', class: 'button-outline mb-0' %>
-      <%= link_to "Editar", edit_post_path(post), class: 'btn btn-secondary' %>
-      <%= link_to "Apagar", post, method: :delete, class: 'btn btn-danger',
-        data: { confirm: 'Você tem certeza?' }
-      %>
+      <% if current_user.nil? ||  current_user.present? %>
+      <% else  %>
+        <%= link_to "Editar", edit_post_path(post), class: 'btn btn-secondary' %>
+        <%= link_to "Apagar", post, method: :delete, class: 'btn btn-danger',
+          data: { confirm: 'Você tem certeza?' }
+        %>
+      <% end%>
+
+    
+
     </div>
   </div>
 </div>
