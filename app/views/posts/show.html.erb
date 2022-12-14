@@ -47,11 +47,18 @@
   <div class="container col-lg-8 my-3 pt-4 px-4 shadow-sm border border-muted rounded bg-white">
     <%= form_with model: @comment, local: true do |form| %>
       <%= form.hidden_field :post_id, value: @post.id %>
-       <%= form.hidden_field :author, value: current_user.email.to_s.split('@')[0]  %>
-        <div class="form-group">
-          <%= form.label :author, class: 'fs-5'%>
-          <%= form.text_field :author, value: current_user.email.to_s.split('@')[0], disabled: true, required: true%>
-        </div>
+        <% if current_user %>
+          <%= form.hidden_field :author, value: current_user.email.to_s.split('@')[0]  %>
+            <div class="form-group">
+              <%= form.label :author, class: 'fs-5'%>
+              <%= form.text_field :author, value: current_user.email.to_s.split('@')[0], disabled: true, required: true%>
+            </div>
+        <% else %>
+              <div class="form-group">
+                <%= form.label :author, class: 'fs-5'%>
+                <%= form.text_field :author, required: true%>
+            </div>
+        <% end %>
 
 
         <div class="form-group mt-2">
