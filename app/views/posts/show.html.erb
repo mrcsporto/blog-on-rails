@@ -4,7 +4,7 @@
     <h1><%= @post.title %></h1>
     <p class="text-muted">
       <strong><%= @post.author %></strong><br>
-      <em><%= l(@post.created_at, format: :long) %></em>
+      <em><%= l(@post.created_at, format: :long) %></em><br>
     </p>
   </div>
 
@@ -41,6 +41,16 @@
         <div class="mt-3">
           <%= sanitize(comment.body.gsub("\n", "<br>")).html_safe %>
         </div>
+        <br>
+       
+        <% if current_user %>
+          <% if @current_user_name == comment.author %>
+            <%= link_to "Editar", edit_comment_path(comment), class: 'btn btn-secondary' %>
+            <%= link_to "Apagar", comment, method: :delete, class: 'btn btn-danger',
+                data: { confirm: 'Você tem certeza?' }
+              %>
+          <% end %>
+        <% end %>
       </div>
   <% end %>
 
@@ -48,10 +58,10 @@
     <%= form_with model: @comment, local: true do |form| %>
       <%= form.hidden_field :post_id, value: @post.id %>
         <% if current_user %>
-          <%= form.hidden_field :author, value: current_user.email.to_s.split('@')[0]  %>
+          <%= form.hidden_field :author, value: @current_user_name %>
             <div class="form-group">
               <%= form.label :author, class: 'fs-5'%>
-              <%= form.text_field :author, value: current_user.email.to_s.split('@')[0], disabled: true, required: true%>
+              <%= form.text_field :author, value: @current_user_name, disabled: true, required: true%>
             </div>
         <% else %>
               <div class="form-group">
