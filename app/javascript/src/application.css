@@ -1,10 +1,11 @@
 @import "bootstrap";
 
-body {
-  display: flex;
-  height: 100vh;
-  flex-direction: column;
-  justify-content: space-between;
+form.button_to {
+  margin-bottom: 1rem;
+}
+
+form {
+  margin-bottom: 1rem;
 }
 
 a {

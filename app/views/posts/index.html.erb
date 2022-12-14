@@ -1,5 +1,10 @@
+<%= render "search" %>
 <%= render @posts.order(created_at: :desc) %>
 
-<div class="text-end">
-  <%= link_to "Novo Post", new_post_path, class: 'btn btn-dark btn-lg fs-4' %>
-</div>
+
+   <% if current_user.present? %>
+    <div class="text-end">
+      <%= button_to "Novo Post", new_post_path(@post), method: 'get' %>
+    </div>
+  <% else  %>
+  <% end %>
