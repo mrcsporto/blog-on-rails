@@ -1,5 +1,15 @@
 <%= render "search" %>
-<%= render @posts.order(created_at: :desc) %>
+  <% if @posts.count == 0 %>
+    <div class="card bg-light mb-3">
+      <div class="card-body p-4">
+        <h2>Seja o primeiro a publicar um artigo....</h2><br>
+          <%= link_to "Sign up", new_user_registration_path, class: 'button' %>  
+          <%= link_to "Login", new_user_session_path, class: 'button button-outline' %>
+      </div>
+    </div>
+  <% else%>
+    <%= render @posts.order(created_at: :desc) %>
+  <% end %>
 
 
    <% if current_user.present? %>
