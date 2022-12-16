@@ -23,7 +23,7 @@
         <h1 class="display-4 fw-bold">St4ck0v3r Fórum</h1>
         <p class="lead"> 
           <em>
-            Uma plataforma brasileira, pública e colaborativa sobre programação.
+            A primeira plataforma brasileira, pública e colaborativa sobre programação.
           </em>
         </p>
       <% end %>
@@ -32,10 +32,10 @@
             Logado como <strong><%= current_user.email %></strong> 
             
             <%= link_to '', edit_user_registration_path, class: 'text-white icon-user' %> |
-            <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'text-white'%>
+            <%= link_to "Sair", destroy_user_session_path, method: :delete, class: 'text-white'%>
           <% else %>
             <%= link_to "Cadastro", new_user_registration_path, class: 'text-white' %> |
-            <%= link_to "Login", new_user_session_path, class: 'text-white' %>
+            <%= link_to "Entrar", new_user_session_path, class: 'text-white' %>
           <% end %>
       </div>
     </div>
