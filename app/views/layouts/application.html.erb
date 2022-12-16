@@ -15,9 +15,12 @@
   </head>
 
   <body class="d-flex flex-column min-vh-100">
+    <% if user_signed_in? %>
+      <%= auto_session_timeout_js %>
+    <% end %>
     <div class="bg-dark text-center sticky-top text-white mb-5 p-4">
       <%= link_to root_path, class: 'text-white' do %>
-        <h1 class="display-4 fw-bold">Stackover Forum</h1>
+        <h1 class="display-4 fw-bold">StackOver Forum</h1>
         <p class="lead"> 
           <em>
             Uma plataforma pública e colaborativa de perguntas e respostas sobre programação.
