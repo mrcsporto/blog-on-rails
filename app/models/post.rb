@@ -1,4 +1,6 @@
 class Post < ApplicationRecord
+  has_rich_text :body
+  
   include PgSearch::Model
   extend FriendlyId
 

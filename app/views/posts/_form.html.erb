@@ -3,17 +3,17 @@
 
   <div class="form-group">
     <%= form.label :title, class: 'fs-5 mt-3' %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, class: 'fs-5' %>
   </div>
 
   <div class="form-group">
     <%= form.label :author, class: 'fs-5 mt-3' %>
-    <%= form.text_field :author, value: @current_user_name, disabled: true, required: true%>
+    <%= form.text_field :author, class: 'fs-5', value: @current_user_name, disabled: true, required: true%>
   </div>
 
   <div class="form-group">
     <%= form.label :body, class: 'fs-5 mt-3'%>
-    <%= form.text_area :body %>
+    <%= form.rich_text_area :body, class: 'fs-5'%>
   </div>
 
   <div class="actions">
