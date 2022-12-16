@@ -1,5 +1,9 @@
 @import "bootstrap";
 
+nav {
+  border-top: 0.75rem solid #9b4dca;
+}
+
 form.button_to {
   margin-bottom: 1rem;
 }

@@ -1,5 +1,5 @@
 
-<div class="shadow p-5 bg-light rounded">
+<div class="shadow p-5 mb-5 bg-light rounded">
   <div class="text-center mb-5">
     <h1><%= @post.title %></h1>
     <p class="text-muted">
@@ -9,15 +9,18 @@
   </div>
 
   <p class="container">
-    <%= @post.body %>
-       <% if @current_user_name == @post.author %>
-       <div class="float-right">
-          <%= link_to "Editar", edit_post_path(@post), class: 'btn btn-secondary' %>
+    <div class="container bg-body text-break border border border-muted rounded shadow-sm p-4">
+      <%= @post.body %>
+    
+       <% if @current_user_name == @post.author %> <hr>
+       <div class="mt-4">
+          <%= link_to "Editar", edit_post_path(@post), class: 'btn btn-secondary fs-6' %>
           <%= link_to "Apagar", @post, method: :delete, class: 'btn btn-danger',
             data: { confirm: 'Você tem certeza?' }
           %>
         <% end%>
        </div>
+      </div>
   </p>
 
   <div class="m-5">
