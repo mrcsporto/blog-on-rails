@@ -1,12 +1,12 @@
 <div class="card bg-white mb-3 shadow">
 
   <div class="card-body p-4">
-    <h1><%= link_to post.title, post_path(post), class: 'text-dark' %></h1>
+    <h1><%= link_to post.title.truncate(70), post_path(post), class: 'text-dark' %></h1>
     <div class="text-muted mb-2">
       <em>Por <%= post.author %> (<%= l(post.created_at, format: :long) %>) </em>
     </div>
     <p>
-      <%= post.body.to_plain_text.truncate(300) %>
+      <%= post.body.to_plain_text.truncate(250) %>
     </p> 
     <p class="text-muted">
       <%= pluralize(post.comments.count, 'Comentário') %> 
