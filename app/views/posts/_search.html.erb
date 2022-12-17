@@ -1,10 +1,15 @@
-<div class="row align-items-center">
+<div class="row align-items-end justify-content-center text-start">
    <% if current_user.present? %>
     <div class="col">
       <%= button_to "Nova Postagem", new_post_path(@post), method: 'get' %>
     </div>
   <% end %> 
-  <div class="col-5">  
+
+  <% if current_user.present? %>
+    <div class="col-5">  
+  <% else %>
+    <div class="col-5 offset-7"> 
+  <% end %>
     <div class="search">
       <%= form_with url:search_posts_path, method: :get, local: true, class: 'form-text' do |form| %>
         <div class="form-group mx-2 mb-2 d-flex align-items-end">
