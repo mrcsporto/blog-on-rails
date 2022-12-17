@@ -1,8 +1,8 @@
 class Post < ApplicationRecord
-  has_rich_text :body
-
   include PgSearch::Model
   extend FriendlyId
+  
+  has_rich_text :body
 
   friendly_id :title, use: :slugged
 
