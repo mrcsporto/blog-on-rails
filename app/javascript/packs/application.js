@@ -8,14 +8,10 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "bootstrap/dist/js/bootstrap.bundle"
 import "../src/application.css"
+import "controllers"
 
 Rails.start()
 ActiveStorage.start()
 
-const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
-import "controllers"
-
 require("trix")
 require("@rails/actiontext")
-
