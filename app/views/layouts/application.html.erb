@@ -15,7 +15,7 @@
     <%= javascript_pack_tag 'application' %>
   </head>
 
-  <body class='d-flex flex-column min-vh-100'>
+  <body class='d-flex flex-column min-vh-100 bg-light'>
     <% if user_signed_in? %>
       <%= auto_session_timeout_js %>
     <% end %>
@@ -42,7 +42,7 @@
     </nav>
 
 
-    <div class='container col-md-10 col-lg-8'>
+    <div class='container col-md-10 col-lg-8 mb-4'>
       <% flash.each do |type, message| %>
         <div class='alert alert-<%= type == 'alert' ? 'danger' : 'success' %> alert-dismissible fade show' role='alert'>
           <%= message %>

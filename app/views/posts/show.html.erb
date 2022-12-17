@@ -1,7 +1,7 @@
 
 <div class="shadow p-5 mb-5 bg-light rounded">
   <div class="text-center mb-5">
-    <h1><%= @post.title %></h1>
+    <h1 class="text-break px-4" ><%= @post.title %></h1>
     <p class="text-muted">
       <strong><%= @post.author %></strong><br>
       <em><%= l(@post.created_at, format: :long) %></em><br>
@@ -9,7 +9,7 @@
   </div>
 
   <p class="container">
-    <div class="container bg-body text-break border border border-muted rounded shadow-sm p-4">
+    <div class="container bg-white text-break border border border-muted rounded shadow-sm p-4">
       <%= @post.body %>
     
        <% if @current_user_name == @post.author %> <hr>
@@ -37,7 +37,7 @@
   </div>
 
     <% @comments.each do |comment| %>
-      <div class="container col-lg-8 my-3 p-4 shadow-sm border border-muted rounded bg-white">
+      <div class="container col-lg-12 my-3 p-4 shadow-sm border border-muted rounded bg-white">
 
         <div class="row d-flex flex-row">
           <div class="col fs-5">
@@ -64,7 +64,7 @@
       </div>
   <% end %>
 
-  <div class="container col-lg-8 my-3 pt-4 px-4 shadow-sm border border-muted rounded bg-white">
+  <div class="container col-lg-12 my-3 pt-4 px-4 shadow-sm border border-muted rounded bg-white">
     <%= form_with model: @comment, local: true do |form| %>
       <%= form.hidden_field :post_id, value: @post.id %>
         <% if current_user %>
