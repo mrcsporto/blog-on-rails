@@ -1,5 +1,9 @@
 @import "bootstrap";
 
+body {
+  color: #606c76;
+}
+
 nav {
   border-top: 0.75rem solid #9b4dca;
 }
