@@ -1,5 +1,4 @@
-
-<div class="shadow p-5 mb-5 bg-light rounded">
+<div class="shadow p-5 mb-5 bg-light border border-muted rounded">
   <div class="text-center mb-5">
     <h1 class="text-break px-4" ><%= @post.title %></h1>
     <p class="text-muted">
@@ -9,7 +8,7 @@
   </div>
 
   <p class="container">
-    <div class="container bg-white text-break border border border-muted rounded shadow-sm p-4">
+    <div class="container bg-white text-break border border-muted rounded shadow-sm p-4">
       <%= @post.body %>
     
        <% if @current_user_name == @post.author %> <hr>
@@ -35,63 +34,61 @@
         <% end %>
     </div>
   </div>
-
-  <% @comments.each do |comment| %>
-    <div class="container col-lg-12 my-3 p-4 shadow-sm border border-muted rounded bg-white">
-
-      <div class="row d-flex flex-row">
-        <div class="col fs-5">
-          <strong><%= comment.author %></strong> 
+  <div class='bg-white container p-4 my-3 shadow-sm border border-muted rounded'>
+    <% @comments.each do |comment| %>
+      <div class="container col-lg-12 my-2 p-4 shadow-sm border border-muted rounded bg-light">
+        <div class="row d-flex flex-row">
+          <div class="col fs-5">
+            <strong><%= comment.author %></strong> 
+          </div>
+          <div class="col text-end">
+            há <%= time_ago_in_words comment.created_at %>
+          </div>
         </div>
-        
-        <div class="col text-end">
-          há <%= time_ago_in_words comment.created_at %>
+        <hr>
+        <div class="mt-3 fs-5 text-break">
+          <%= sanitize(comment.body.gsub("\n", "<br>")).html_safe %>
         </div>
-      </div>
-      <hr>
-      <div class="mt-3 fs-5 text-break">
-        <%= sanitize(comment.body.gsub("\n", "<br>")).html_safe %>
-      </div>
-      <br>
-      
-      <% if current_user %>
-        <% if @current_user_name == comment.author %>
-          <%= link_to "Apagar", comment, method: :delete, class: 'btn btn-danger',
-              data: { confirm: 'Você tem certeza?' }
-            %>
-        <% end %>
-      <% end %>
-    </div>
-  <% end %>
-
-  <div class="container col-lg-12 my-3 pt-4 px-4 shadow-sm border border-muted rounded bg-white">
-    <%= form_with model: @comment, local: true do |form| %>
-      <%= form.hidden_field :post_id, value: @post.id %>
+        <br>
         <% if current_user %>
-          <%= form.hidden_field :author, value: @current_user_name %>
-            <div class="form-group">
-              <%= form.label :author, class: 'fs-5'%>
-              <%= form.text_field :author, value: @current_user_name, disabled: true, required: true, class: 'fs-4' %>
-            </div>
-        <% else %>
-              <div class="form-group">
-                <%= form.label :author, class: 'fs-4'%>
-                <%= form.text_field :author, required: true, class: 'fs-4' %>
-            </div>
+          <% if @current_user_name == comment.author %>
+            <%= link_to "Apagar", comment, method: :delete, class: 'btn btn-danger',
+                data: { confirm: 'Você tem certeza?' }
+              %>
+          <% end %>
         <% end %>
+      </div>
+
+    <% end %>
+
+    <div class="container col-lg-12 my-3 pt-4 px-4 shadow-sm border border-muted rounded bg-light">
+      <%= form_with model: @comment, local: true do |form| %>
+        <%= form.hidden_field :post_id, value: @post.id %>
+          <% if current_user %>
+            <%= form.hidden_field :author, value: @current_user_name %>
+              <div class="form-group">
+                <%= form.label :author, class: 'fs-5'%>
+                <%= form.text_field :author, value: @current_user_name, disabled: true, required: true, class: 'fs-4' %>
+              </div>
+          <% else %>
+                <div class="form-group">
+                  <%= form.label :author, class: 'fs-4'%>
+                  <%= form.text_field :author, required: true, class: 'fs-4 form-control' %>
+              </div>
+          <% end %>
 
 
-        <div class="form-group mt-2">
-          <%= form.label :body, class: 'fs-5' %>
-          <%= form.rich_text_area :body, required: true, class: 'fs-4' %>
-        </div>
+          <div class="form-group mt-2">
+            <%= form.label :body, class: 'fs-5' %>
+            <%= form.rich_text_area :body, required: true, class: 'fs-4 form-control' %>
+          </div>
 
-        <div class="actions my-3">
-          <%= form.submit 'Enviar', 
-            data: { disable_with: 'Enviando...' }, class: 'button' %>
-        </div>
-      <% end %>
+          <div class="actions my-3">
+            <%= form.submit 'Enviar', 
+              data: { disable_with: 'Enviando...' }, class: 'button' %>
+          </div>
+        <% end %>
+    </div>
   </div>
-  
 </div>
 
