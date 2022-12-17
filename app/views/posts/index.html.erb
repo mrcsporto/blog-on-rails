@@ -14,9 +14,3 @@
   <% end %>
 
 
-   <% if current_user.present? %>
-    <div class="text-end">
-      <%= button_to "Nova Postagem", new_post_path(@post), method: 'get' %>
-    </div>
-  <% else  %>
-  <% end %>
