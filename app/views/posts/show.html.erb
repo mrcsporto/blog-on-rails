@@ -34,9 +34,9 @@
         <% end %>
     </div>
   </div>
-  <div class='bg-white container p-4 my-3 shadow-sm border border-muted rounded'>
+  <div class='bg-white container p-4 my-3 shadow border border-muted rounded'>
     <% @comments.each do |comment| %>
-      <div class="container col-lg-12 my-2 p-4 shadow-sm border border-muted rounded bg-light">
+      <div class="container col-lg-12 my-3 p-4 shadow-sm border border-muted rounded bg-light">
         <div class="row d-flex flex-row">
           <div class="col fs-5">
             <strong><%= comment.author %></strong> 
@@ -46,8 +46,10 @@
           </div>
         </div>
         <hr>
-        <div class="mt-3 fs-5 text-break">
-          <%= sanitize(comment.body.gsub("\n", "<br>")).html_safe %>
+        <div class='container text-start bg-white shadow-sm border border-muted rounded'>
+          <div class="fs-5 py-4 px-1 text-break bg-white">
+            <%= sanitize(comment.body.gsub("\n", "<br>")).html_safe %>
+        </div>
         </div>
         <br>
         <% if current_user %>
