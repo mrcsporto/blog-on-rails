@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
   has_rich_text :body
-  
+
   include PgSearch::Model
   extend FriendlyId
 
@@ -10,7 +10,7 @@ class Post < ApplicationRecord
 
   has_many :comments, dependent: :destroy
 
-  pg_search_scope :search, 
-    against: %i(title author body),
-    associated_against: { comments: %i[body]}
+  pg_search_scope :search,
+                  against: %i[title author body],
+                  associated_against: { comments: %i[body] }
 end
