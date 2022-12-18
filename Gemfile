@@ -37,6 +37,8 @@ gem 'friendly_id', '~> 5.4.0'
 gem 'devise'
 # Provides automatic session timeout in a Rails application.
 gem 'auto-session-timeout'
+# Pagination
+gem 'kaminari'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false

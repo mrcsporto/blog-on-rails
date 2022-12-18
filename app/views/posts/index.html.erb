@@ -11,6 +11,7 @@
     </div>
   <% else%>
     <%= render @posts.order(created_at: :desc) %>
+    <%= paginate @posts %>
   <% end %>
 
 
