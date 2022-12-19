@@ -27,6 +27,7 @@ $ rails db:seed to create deafult Admin User
 - Unitary tests, tests, tests...
 - Pagination
 - Session Time Out
+- Image Upload
 - Admin Role Management
 - Heroku Deploy
 ```
