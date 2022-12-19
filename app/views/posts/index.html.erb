@@ -10,7 +10,7 @@
       </div>
     </div>
   <% else%>
-    <%= render @posts.order(created_at: :desc) %>
+    <%= render @posts.order(created_at: :desc) %> <br>
     <%= paginate @posts %>
   <% end %>
 

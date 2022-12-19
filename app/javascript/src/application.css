@@ -19,3 +19,13 @@ form {
 a {
   text-decoration: none;
 }
+
+.page-link.active, .active > .page-link {
+  z-index: 3;
+  background-color: #9b4dca;
+  border-color: #9b4dca;
+}
+
+.page-link {
+  color: #9b4dca;
+}
