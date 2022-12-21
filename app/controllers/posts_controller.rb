@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, except: %i[ index show search ]
 
   def index
-    @posts = Post.all
+    @posts = Post.page params[:page]
   end
 
   def search
